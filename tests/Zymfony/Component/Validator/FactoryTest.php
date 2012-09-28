@@ -36,13 +36,27 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
         )));
     }
 
-    public function testcreate()
+    public function testCreateNoOptions()
     {
-        $class = 'Zend\Validator\CreditCard';
+        $class = 'Zend\Validator\StringLength';
         $validator = Factory::create(new Constraint(array(
             'validator' => $class
         )));
 
         $this->assertInstanceOf($class, $validator);
+    }
+
+    public function testCreate()
+    {
+        $class = 'Zend\Validator\StringLength';
+        $options = array('min' => 3, 'max' => 5);
+        $validator = Factory::create(new Constraint(array(
+            'validator' => $class,
+            'options'   => $options
+        )));
+
+        $this->assertInstanceOf($class, $validator);
+        $this->assertSame($options['min'], $validator->getOption('min'));
+        $this->assertSame($options['max'], $validator->getOption('max'));
     }
 }
