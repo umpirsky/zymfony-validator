@@ -19,9 +19,9 @@ class ConstraintTest extends \PHPUnit_Framework_TestCase
     public function testSetClass()
     {
         $constraint = new Constraint(array(
-            'class' => 'foo',
+            'validator' => 'CreditCard',
         ));
 
-        $this->assertEquals('foo', $constraint->class);
+        $this->assertEquals('CreditCard', $constraint->validator);
     }
 }

@@ -31,6 +31,6 @@ class ConstraintValidatorTest extends \PHPUnit_Framework_TestCase
         $this->context->expects($this->never())
             ->method('addViolation');
 
-        $this->validator->validate(null, new Constraint(array('class' => 'todo')));
+        $this->validator->validate(null, new Constraint(array('validator' => 'CreditCard')));
     }
 }

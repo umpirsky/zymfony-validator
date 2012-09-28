@@ -21,5 +21,10 @@ use Symfony\Component\Validator\Constraint as SymfonyConstraint;
  */
 class Constraint extends SymfonyConstraint
 {
-    public $class;
+    /**
+     * Validator class name.
+     *
+     * @var string
+     */
+    public $validator;
 }
