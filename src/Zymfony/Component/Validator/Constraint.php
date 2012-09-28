@@ -31,9 +31,9 @@ class Constraint extends SymfonyConstraint
     /**
      * Validator options.
      *
-     * @var array
+     * @var array|Traversable
      */
-    public $options = array();
+    public $options;
 
     /**
      * {@inheritDoc}
