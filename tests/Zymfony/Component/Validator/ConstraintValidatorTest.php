@@ -48,48 +48,68 @@ class ConstraintValidatorTest extends \PHPUnit_Framework_TestCase
     public function testValidValueDataProvider()
     {
         return array(
-//            array('Zend\I18n\Validator\Alnum', array(), 'foo'),
-            array('Zend\Validator\StringLength', array('min' => 3, 'max' => 5), 'four'),
-            array('Zend\Validator\CreditCard', array(), '378282246310005'),
+//            array(
+//                'Zend\I18n\Validator\Alnum',
+//                array(),
+//                'foo'
+//            ),
+            array(
+                'Zend\Validator\StringLength',
+                array('min' => 3, 'max' => 5),
+                'four'
+            ),
+            array(
+                'Zend\Validator\CreditCard',
+                array(),
+                '378282246310005'
+            ),
         );
     }
 
     /**
      * @dataProvider testInvalidValueDataProvider
      */
-    public function testInvalidValue($validator, $value, $message, $params)
+    public function testInvalidValue($validator, $options, $value, $message)
     {
         $this->context
             ->expects($this->once())
             ->method('addViolation')
             ->with(
                 $message,
-                $this->identicalTo($params),
+                $this->identicalTo(array()),
                 $this->identicalTo($value)
             );
         ;
 
-        $this->validator->validate($value, new Constraint(array('validator' => $validator)));
+        $this->validator->validate(
+            $value,
+            new Constraint(array(
+                'validator' => $validator,
+                'options'   => $options
+            ))
+        );
     }
 
     public function testInvalidValueDataProvider()
     {
         return array(
             array(
-                'Zend\Validator\CreditCard',
-                'foo',
-                'The input must contain only digits',
-                array(
-                    '{{ value }}' => 'foo'
-                )
+                'Zend\Validator\StringLength',
+                array('min' => 3, 'max' => 5),
+                'loooooooooooooooooong',
+                'The input is more than 5 characters long'
             ),
             array(
                 'Zend\Validator\CreditCard',
+                array(),
+                'foo',
+                'The input must contain only digits'
+            ),
+            array(
+                'Zend\Validator\CreditCard',
+                array(),
                 '1234',
-                'The input is not from an allowed institute',
-                array(
-                    '{{ value }}' => '1234'
-                )
+                'The input is not from an allowed institute'
             ),
         );
     }
