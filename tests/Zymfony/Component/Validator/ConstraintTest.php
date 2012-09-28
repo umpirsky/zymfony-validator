@@ -11,15 +11,17 @@
 
 namespace Zymfony\Component\Validator;
 
-use Symfony\Component\Validator\Constraint as SymfonyConstraint;
-
 /**
- * Symfony constraint adapter.
- *
- * @Annotation
  * @author Саша Стаменковић <umpirsky@gmail.com>
  */
-class Constraint extends SymfonyConstraint
+class ConstraintTest extends \PHPUnit_Framework_TestCase
 {
-    public $class;
+    public function testSetClass()
+    {
+        $constraint = new Constraint(array(
+            'class' => 'foo',
+        ));
+
+        $this->assertEquals('foo', $constraint->class);
+    }
 }

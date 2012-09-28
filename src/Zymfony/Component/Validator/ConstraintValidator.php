@@ -11,16 +11,17 @@
 
 namespace Zymfony\Component\Validator;
 
-use Symfony\Component\Validator\ConstraintValidator as BaseConstraintValidator;
+use Symfony\Component\Validator\ConstraintValidator as SymfonyConstraintValidator;
+use Symfony\Component\Validator\Constraint as SymfonyConstraint;
 
 /**
  * Symfony constraint validator adapter.
  *
  * @author Саша Стаменковић <umpirsky@gmail.com>
  */
-class ConstraintValidator extends BaseConstraintValidator
+class ConstraintValidator extends SymfonyConstraintValidator
 {
-    public function validate($value, Constraint $constraint)
+    public function validate($value, SymfonyConstraint $constraint)
     {
     }
 }
