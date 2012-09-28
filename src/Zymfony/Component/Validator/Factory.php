@@ -23,14 +23,21 @@ class Factory
     /**
      * Creates Zend validator.
      *
-     * @param string $validator
+     * @param string $class
      *
      * @return AbstractValidator
      */
-    public static function create($validator)
+    public static function create($class)
     {
-        $class = 'Zend\\Validator\\'.$validator;
+        if (!class_exists($class)) {
+            throw new \RuntimeException(sprintf('Class %s does not exists.', $class));
+        }
 
-        return new $class();
+        $validator = new $class();
+        if (!$validator instanceof AbstractValidator) {
+            throw new \RuntimeException(sprintf('%s is not an instance of Zend\Validator\AbstractValidator.', $class));
+        }
+
+        return $validator;
     }
 }

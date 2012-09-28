@@ -42,7 +42,8 @@ class ConstraintValidatorTest extends \PHPUnit_Framework_TestCase
     public function testValidValueDataProvider()
     {
         return array(
-            array('CreditCard', '378282246310005'),
+//            array('Zend\I18n\Validator\Alnum', 'foo'),
+            array('Zend\Validator\CreditCard', '378282246310005'),
         );
     }
 
@@ -68,7 +69,7 @@ class ConstraintValidatorTest extends \PHPUnit_Framework_TestCase
     {
         return array(
             array(
-                'CreditCard',
+                'Zend\Validator\CreditCard',
                 'foo',
                 'The input must contain only digits',
                 array(
@@ -76,7 +77,7 @@ class ConstraintValidatorTest extends \PHPUnit_Framework_TestCase
                 )
             ),
             array(
-                'CreditCard',
+                'Zend\Validator\CreditCard',
                 '1234',
                 'The input is not from an allowed institute',
                 array(
