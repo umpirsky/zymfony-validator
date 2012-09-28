@@ -26,34 +26,63 @@ class ConstraintValidatorTest extends \PHPUnit_Framework_TestCase
         $this->validator->initialize($this->context);
     }
 
-    public function testValidValue()
+    /**
+     * @dataProvider testValidValueDataProvider
+     */
+    public function testValidValue($validator, $value)
     {
-        $value = '378282246310005';
-
         $this->context
             ->expects($this->never())
             ->method('addViolation')
         ;
 
-        $this->validator->validate($value, new Constraint(array('validator' => 'CreditCard')));
+        $this->validator->validate($value, new Constraint(array('validator' => $validator)));
     }
 
-    public function testInvalidValue()
+    public function testValidValueDataProvider()
     {
-        $value = 'foo';
+        return array(
+            array('CreditCard', '378282246310005'),
+        );
+    }
 
+    /**
+     * @dataProvider testInvalidValueDataProvider
+     */
+    public function testInvalidValue($validator, $value, $message, $params)
+    {
         $this->context
             ->expects($this->once())
             ->method('addViolation')
             ->with(
-                'The input must contain only digits',
-                $this->identicalTo(array(
-                    '{{ value }}' => $value
-                )),
+                $message,
+                $this->identicalTo($params),
                 $this->identicalTo($value)
             );
         ;
 
-        $this->validator->validate($value, new Constraint(array('validator' => 'CreditCard')));
+        $this->validator->validate($value, new Constraint(array('validator' => $validator)));
+    }
+
+    public function testInvalidValueDataProvider()
+    {
+        return array(
+            array(
+                'CreditCard',
+                'foo',
+                'The input must contain only digits',
+                array(
+                    '{{ value }}' => 'foo'
+                )
+            ),
+            array(
+                'CreditCard',
+                '1234',
+                'The input is not from an allowed institute',
+                array(
+                    '{{ value }}' => '1234'
+                )
+            ),
+        );
     }
 }
