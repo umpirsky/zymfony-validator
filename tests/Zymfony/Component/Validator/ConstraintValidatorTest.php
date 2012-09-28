@@ -102,8 +102,8 @@ class ConstraintValidatorTest extends \PHPUnit_Framework_TestCase
             ),
             array(
                 'Zend\Validator\CreditCard',
-                array(),
-                '1234',
+                array('type' => \Zend\Validator\CreditCard::AMERICAN_EXPRESS),
+                '4111111111111111',
                 'The input is not from an allowed institute'
             ),
         );
