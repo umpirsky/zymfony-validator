@@ -1,4 +1,4 @@
-zymfony-validator
+Zymfony Validator
 =================
 
-Zend validator adapter for Symfony
+Zend validator adapter for Symfony.
