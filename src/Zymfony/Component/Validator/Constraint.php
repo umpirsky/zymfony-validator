@@ -33,7 +33,7 @@ class Constraint extends SymfonyConstraint
      *
      * @var array|Traversable
      */
-    public $options;
+    public $options = array();
 
     /**
      * {@inheritDoc}

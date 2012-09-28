@@ -30,12 +30,12 @@ class Factory
     public static function create(Constraint $constraint)
     {
         if (!class_exists($constraint->validator)) {
-            throw new \RuntimeException(sprintf('Class %s does not exists.', $constraint->validator));
+            throw new Exception\ClassNotFoundException($constraint->validator);
         }
 
         $validator = new $constraint->validator($constraint->options);
         if (!$validator instanceof AbstractValidator) {
-            throw new \RuntimeException(sprintf('%s is not an instance of Zend\Validator\AbstractValidator.', $constraint->validator));
+            throw new Exception\UnexpectedTypeException($constraint->validator, 'Zend\Validator\AbstractValidator');
         }
 
         return $validator;
