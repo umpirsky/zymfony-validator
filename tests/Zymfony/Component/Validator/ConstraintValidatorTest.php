@@ -48,11 +48,6 @@ class ConstraintValidatorTest extends \PHPUnit_Framework_TestCase
     public function testValidValueDataProvider()
     {
         return array(
-//            array(
-//                'Zend\I18n\Validator\Alnum',
-//                array(),
-//                'foo'
-//            ),
             array(
                 'Zend\Validator\StringLength',
                 array('min' => 3, 'max' => 5),
