@@ -26,11 +26,13 @@ class ConstraintValidatorTest extends \PHPUnit_Framework_TestCase
         $this->validator->initialize($this->context);
     }
 
-    public function testNullIsValid()
+    public function testCreditCardValidator()
     {
-        $this->context->expects($this->never())
-            ->method('addViolation');
+        $this->context
+            ->expects($this->never())
+            ->method('addViolation')
+        ;
 
-        $this->validator->validate(null, new Constraint(array('validator' => 'CreditCard')));
+        $this->validator->validate('378282246310005', new Constraint(array('validator' => 'CreditCard')));
     }
 }
