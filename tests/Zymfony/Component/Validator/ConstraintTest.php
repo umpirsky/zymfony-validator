@@ -16,12 +16,21 @@ namespace Zymfony\Component\Validator;
  */
 class ConstraintTest extends \PHPUnit_Framework_TestCase
 {
-    public function testSetClass()
+    /**
+     * @expectedException Symfony\Component\Validator\Exception\MissingOptionsException
+     */
+    public function testValidatorRequired()
     {
+        new Constraint();
+    }
+
+    public function testSetValidator()
+    {
+        $validator = 'CreditCard';
         $constraint = new Constraint(array(
-            'validator' => 'CreditCard',
+            'validator' => $validator
         ));
 
-        $this->assertEquals('CreditCard', $constraint->validator);
+        $this->assertEquals($validator, $constraint->validator);
     }
 }

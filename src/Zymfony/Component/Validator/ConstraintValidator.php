@@ -21,6 +21,9 @@ use Symfony\Component\Validator\Constraint as SymfonyConstraint;
  */
 class ConstraintValidator extends SymfonyConstraintValidator
 {
+    /**
+     * {@inheritDoc}
+     */
     public function validate($value, SymfonyConstraint $constraint)
     {
     }
