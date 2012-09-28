@@ -54,6 +54,11 @@ class ConstraintValidatorTest extends \PHPUnit_Framework_TestCase
                 'four'
             ),
             array(
+                'Zend\Validator\Barcode',
+                array('adapter' => 'EAN13'),
+                '9783468111242'
+            ),
+            array(
                 'Zend\Validator\CreditCard',
                 array(),
                 '378282246310005'
@@ -99,6 +104,12 @@ class ConstraintValidatorTest extends \PHPUnit_Framework_TestCase
                 array(),
                 'foo',
                 'The input must contain only digits'
+            ),
+            array(
+                'Zend\Validator\Barcode',
+                array('adapter' => 'EAN13'),
+                'foo',
+                'The input should have a length of 13 characters'
             ),
             array(
                 'Zend\Validator\CreditCard',
