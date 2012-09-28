@@ -26,7 +26,7 @@ class ConstraintValidator extends SymfonyConstraintValidator
      */
     public function validate($value, SymfonyConstraint $constraint)
     {
-        $validator = Factory::create($constraint->validator);
+        $validator = Factory::create($constraint);
 
         if ($validator->isValid($value)) {
             return;

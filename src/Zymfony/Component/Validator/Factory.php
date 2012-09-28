@@ -21,21 +21,21 @@ use Zend\Validator\AbstractValidator;
 class Factory
 {
     /**
-     * Creates Zend validator.
+     * Creates Zend validator based on constrint.
      *
-     * @param string $class
+     * @param Constraint $constraint
      *
      * @return AbstractValidator
      */
-    public static function create($class)
+    public static function create(Constraint $constraint)
     {
-        if (!class_exists($class)) {
-            throw new \RuntimeException(sprintf('Class %s does not exists.', $class));
+        if (!class_exists($constraint->validator)) {
+            throw new \RuntimeException(sprintf('Class %s does not exists.', $constraint->validator));
         }
 
-        $validator = new $class();
+        $validator = new $constraint->validator($constraint->options);
         if (!$validator instanceof AbstractValidator) {
-            throw new \RuntimeException(sprintf('%s is not an instance of Zend\Validator\AbstractValidator.', $class));
+            throw new \RuntimeException(sprintf('%s is not an instance of Zend\Validator\AbstractValidator.', $constraint->validator));
         }
 
         return $validator;

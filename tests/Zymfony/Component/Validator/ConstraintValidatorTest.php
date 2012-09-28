@@ -29,21 +29,28 @@ class ConstraintValidatorTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider testValidValueDataProvider
      */
-    public function testValidValue($validator, $value)
+    public function testValidValue($validator, $options, $value)
     {
         $this->context
             ->expects($this->never())
             ->method('addViolation')
         ;
 
-        $this->validator->validate($value, new Constraint(array('validator' => $validator)));
+        $this->validator->validate(
+            $value,
+            new Constraint(array(
+                'validator' => $validator,
+                'options'   => $options
+            ))
+        );
     }
 
     public function testValidValueDataProvider()
     {
         return array(
-//            array('Zend\I18n\Validator\Alnum', 'foo'),
-            array('Zend\Validator\CreditCard', '378282246310005'),
+//            array('Zend\I18n\Validator\Alnum', array(), 'foo'),
+            array('Zend\Validator\StringLength', array('min' => 3, 'max' => 5), 'four'),
+            array('Zend\Validator\CreditCard', array(), '378282246310005'),
         );
     }
 

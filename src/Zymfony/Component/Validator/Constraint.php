@@ -29,6 +29,13 @@ class Constraint extends SymfonyConstraint
     public $validator;
 
     /**
+     * Validator options.
+     *
+     * @var array
+     */
+    public $options = array();
+
+    /**
      * {@inheritDoc}
      */
     public function getRequiredOptions()
