@@ -49,7 +49,16 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
     public function testCreate()
     {
         $class = 'Zend\Validator\StringLength';
-        $options = array('min' => 3, 'max' => 5);
+        $options = array(
+            'min'      => 3,
+            'max'      => 5,
+            'messages' => array(
+                \Zend\Validator\StringLength::INVALID   => 'Invalid cool string. Ordinary string expected.',
+                \Zend\Validator\StringLength::TOO_SHORT => 'My cool string is less than %min% characters long.',
+                \Zend\Validator\StringLength::TOO_LONG  => 'My cool string is more than %max% characters long.',
+            )
+        );
+
         $validator = Factory::create(new Constraint(array(
             'validator' => $class,
             'options'   => $options
@@ -58,5 +67,6 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf($class, $validator);
         $this->assertSame($options['min'], $validator->getOption('min'));
         $this->assertSame($options['max'], $validator->getOption('max'));
+        $this->assertSame($options['messages'], $validator->getMessageTemplates());
     }
 }

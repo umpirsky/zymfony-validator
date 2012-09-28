@@ -100,6 +100,18 @@ class ConstraintValidatorTest extends \PHPUnit_Framework_TestCase
                 'The input is more than 5 characters long'
             ),
             array(
+                'Zend\Validator\StringLength',
+                array(
+                    'min'      => 3,
+                    'max'      => 5,
+                    'messages' => array(
+                        \Zend\Validator\StringLength::TOO_LONG  => 'My cool string is more than %max% characters long.',
+                    )
+                ),
+                'loooooooooooooooooong',
+                'My cool string is more than 5 characters long.'
+            ),
+            array(
                 'Zend\Validator\CreditCard',
                 array(),
                 'foo',
