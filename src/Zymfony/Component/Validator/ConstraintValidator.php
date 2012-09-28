@@ -34,7 +34,7 @@ class ConstraintValidator extends SymfonyConstraintValidator
 
         $this->context->addViolation(
             array_pop($validator->getMessages()),
-            array(),
+            array('{{ value }}' => $value),
             $value
         );
     }
