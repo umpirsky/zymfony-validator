@@ -1,0 +1,36 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * This file is part of the Zymfony library.
+ *
+ *  (c) Саша Стаменковић <umpirsky@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+if (file_exists($a = __DIR__.'/../../../autoload.php')) {
+    require_once $a;
+} else {
+    require_once __DIR__.'/../vendor/autoload.php';
+}
+
+$markup = '';
+$validatorManager = new Zymfony\Component\Validator\ValidatorPluginManager();
+foreach ($validatorManager->getInvokableClasses() as $validator => $class) {
+    $markup .= sprintf(
+        '* [%s](https://github.com/zendframework/zf2/tree/master/library/%s.php)%s',
+        $validator,
+        str_replace('\\', '/', $class),
+        PHP_EOL
+    );
+}
+
+if (false === $tpl = file_get_contents(__DIR__.'/../README.tpl')) {
+    throw new \RuntimeException('Readme template not found.');
+}
+
+if (!file_put_contents(__DIR__.'/../README.md', str_replace('%ValidatorsAvailable%', $markup, $tpl))) {
+    throw new \RuntimeException('Failed to write to readme.');
+}
