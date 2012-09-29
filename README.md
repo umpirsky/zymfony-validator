@@ -39,6 +39,7 @@ class ZymfonyType extends AbstractType
     }
 }
 ```
+[See more examples.](https://github.com/umpirsky/Silex-Kitchen-Edition/blob/zymfony-validator/src/controllers.php#L68)
 
 ## Tests
 
