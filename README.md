@@ -37,7 +37,7 @@ class ZymfonyType extends AbstractType
         $builder
             ->add('credit_card_number', 'text', array(
                 'constraints' => new Constraint(array(
-                    'validator' => 'Zend\Validator\CreditCard',
+                    'validator' => 'creditcard',
                 ))
             ));
     }

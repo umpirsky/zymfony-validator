@@ -49,17 +49,17 @@ class ConstraintValidatorTest extends \PHPUnit_Framework_TestCase
     {
         return array(
             array(
-                'Zend\Validator\StringLength',
+                'stringlength',
                 array('min' => 3, 'max' => 5),
                 'four'
             ),
             array(
-                'Zend\Validator\Barcode',
+                'barcode',
                 array('adapter' => 'EAN13'),
                 '9783468111242'
             ),
             array(
-                'Zend\Validator\CreditCard',
+                'creditcard',
                 array(),
                 '378282246310005'
             ),
@@ -94,13 +94,13 @@ class ConstraintValidatorTest extends \PHPUnit_Framework_TestCase
     {
         return array(
             array(
-                'Zend\Validator\StringLength',
+                'stringlength',
                 array('min' => 3, 'max' => 5),
                 'loooooooooooooooooong',
                 'The input is more than 5 characters long'
             ),
             array(
-                'Zend\Validator\StringLength',
+                'stringlength',
                 array(
                     'min'      => 3,
                     'max'      => 5,
@@ -112,19 +112,19 @@ class ConstraintValidatorTest extends \PHPUnit_Framework_TestCase
                 'My cool string is more than 5 characters long.'
             ),
             array(
-                'Zend\Validator\CreditCard',
+                'creditcard',
                 array(),
                 'foo',
                 'The input must contain only digits'
             ),
             array(
-                'Zend\Validator\Barcode',
+                'barcode',
                 array('adapter' => 'EAN13'),
                 'foo',
                 'The input should have a length of 13 characters'
             ),
             array(
-                'Zend\Validator\CreditCard',
+                'creditcard',
                 array('type' => \Zend\Validator\CreditCard::AMERICAN_EXPRESS),
                 '4111111111111111',
                 'The input is not from an allowed institute'

@@ -26,7 +26,7 @@ class ConstraintTest extends \PHPUnit_Framework_TestCase
 
     public function testSetValidator()
     {
-        $validator = 'CreditCard';
+        $validator = 'stringlength';
         $constraint = new Constraint(array(
             'validator' => $validator
         ));

@@ -13,6 +13,7 @@ namespace Zymfony\Component\Validator;
 
 use Symfony\Component\Validator\ConstraintValidator as SymfonyConstraintValidator;
 use Symfony\Component\Validator\Constraint as SymfonyConstraint;
+use Zend\Validator\ValidatorPluginManager;
 
 /**
  * Symfony constraint validator adapter.
@@ -26,7 +27,8 @@ class ConstraintValidator extends SymfonyConstraintValidator
      */
     public function validate($value, SymfonyConstraint $constraint)
     {
-        $validator = Factory::create($constraint);
+        $validatorManager = new ValidatorPluginManager();
+        $validator = $validatorManager->get($constraint->validator, $constraint->options);
 
         if ($validator->isValid($value)) {
             return;
