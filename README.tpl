@@ -20,7 +20,9 @@ The recommended way to install Zymfony Validator is through
 }
 ```
 
-## Example
+## Examples
+
+### Forms
 
 ```php
 <?php
@@ -43,6 +45,23 @@ class ZymfonyType extends AbstractType
 }
 ```
 [See more examples.](https://github.com/umpirsky/Silex-Kitchen-Edition/blob/zymfony-validator/src/controllers.php#L68)
+
+### Annotations
+
+```php
+<?php
+
+use Zymfony\Component\Validator\Constraint;
+
+class ZymfonyModel
+{
+    /**
+     * @Constraint(validator = "creditcard")
+     */
+    protected $creditCard;
+}
+```
+[See more examples.](https://github.com/umpirsky/symfony-standard/blob/zymfony-validator/src/Acme/DemoBundle/Model/Contact.php)
 
 ## Validators Available
 
