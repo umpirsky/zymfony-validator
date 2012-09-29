@@ -22,6 +22,10 @@ Examples
 ```php
 <?php
 
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilder;
+use Zymfony\Component\Validator\Constraint;
+
 class ZymfonyType extends AbstractType
 {
     public function buildForm(FormBuilder $builder, array $options)
