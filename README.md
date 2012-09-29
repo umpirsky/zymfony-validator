@@ -2,3 +2,46 @@ Zymfony Validator [![Build Status](https://secure.travis-ci.org/umpirsky/zymfony
 =================
 
 Zend validator adapter for Symfony.
+
+## Installation
+
+The recommended way to install Zymfony Validator is through
+[composer](http://getcomposer.org).
+
+```json
+{
+    "require": {
+        "umpirsky/zymfony-validator": "dev-master"
+    }
+}
+```
+
+Examples
+--------
+
+```php
+<?php
+
+class ZymfonyType extends AbstractType
+{
+    public function buildForm(FormBuilder $builder, array $options)
+    {
+        $builder
+            ->add('credit_card_number', 'text', array(
+                'constraints' => new Constraint(array(
+                    'validator' => 'Zend\Validator\CreditCard',
+                ))
+            ));
+    }
+}
+```
+
+## Tests
+
+To run the test suite, you need [PHPUnit](https://github.com/sebastianbergmann/phpunit).
+
+    $ phpunit
+
+## License
+
+Zymfony Validator is licensed under the MIT license.
