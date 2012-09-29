@@ -16,8 +16,8 @@ The recommended way to install Zymfony Validator is through
 }
 ```
 
-Examples
---------
+Example
+-------
 
 ```php
 <?php
