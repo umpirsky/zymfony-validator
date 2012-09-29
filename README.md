@@ -15,7 +15,7 @@ The recommended way to install Zymfony Validator is through
 ```json
 {
     "require": {
-        "umpirsky/zymfony-validator": "dev-master"
+        "umpirsky/zymfony-validator": "1.0.*"
     }
 }
 ```
