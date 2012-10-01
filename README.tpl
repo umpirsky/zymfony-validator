@@ -22,7 +22,7 @@ The recommended way to install Zymfony Validator is through
 
 ## Examples
 
-### Forms
+### Basic Usage
 
 ```php
 <?php
@@ -39,6 +39,37 @@ class ZymfonyType extends AbstractType
             ->add('credit_card_number', 'text', array(
                 'constraints' => new Constraint(array(
                     'validator' => 'creditcard',
+                ))
+            ));
+    }
+}
+```
+
+### Custom Options and Messages
+
+```php
+<?php
+
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilder;
+use Zend\Validator\StringLength;
+use Zymfony\Component\Validator\Constraint;
+
+class ZymfonyType extends AbstractType
+{
+    public function buildForm(FormBuilder $builder, array $options)
+    {
+        $builder
+            ->add('my_cool_string', 'text', array(
+                'constraints' => new Constraint(array(
+                    'validator' => 'stringlength',
+                    'options'   => array(
+                        'min'      => 2,
+                        'max'      => 8,
+                        'messages' => array(
+                            StringLength::TOO_LONG => 'My cool string is more than %max% characters long.'
+                        )
+                    )
                 ))
             ));
     }

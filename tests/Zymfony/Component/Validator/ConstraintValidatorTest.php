@@ -105,7 +105,7 @@ class ConstraintValidatorTest extends \PHPUnit_Framework_TestCase
                     'min'      => 3,
                     'max'      => 5,
                     'messages' => array(
-                        \Zend\Validator\StringLength::TOO_LONG  => 'My cool string is more than %max% characters long.',
+                        \Zend\Validator\StringLength::TOO_LONG => 'My cool string is more than %max% characters long.',
                     )
                 ),
                 'loooooooooooooooooong',
