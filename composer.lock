@@ -1,19 +1,19 @@
 {
-    "hash": "c0f9efcfe5879b519951ceed15cf586e",
+    "hash": "c3c7c63e05fd66b67c0f027e6fcbb909",
     "packages": [
         {
             "name": "symfony/validator",
-            "version": "v2.1.2",
+            "version": "v2.1.3",
             "target-dir": "Symfony/Component/Validator",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Validator",
-                "reference": "v2.1.2"
+                "reference": "v2.1.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/Validator/zipball/v2.1.2",
-                "reference": "v2.1.2",
+                "url": "https://github.com/symfony/Validator/zipball/v2.1.3",
+                "reference": "v2.1.3",
                 "shasum": ""
             },
             "require": {
@@ -29,7 +29,7 @@
                 "symfony/http-foundation": "2.1.*",
                 "symfony/yaml": "2.1.*"
             },
-            "time": "2012-09-17 17:45:59",
+            "time": "2012-10-22 07:37:12",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -59,25 +59,70 @@
             "homepage": "http://symfony.com"
         },
         {
+            "name": "zendframework/zend-filter",
+            "version": "2.0.3",
+            "target-dir": "Zend/Filter",
+            "dist": {
+                "type": "zip",
+                "url": "http://packages.zendframework.com/composer/Zend_Filter-2.0.3.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "zendframework/zend-crypt": "self.version"
+            },
+            "suggest": {
+                "zendframework/zend-i18n": "Zend\\I18n component",
+                "zendframework/zend-validator": "Zend\\Validator component",
+                "zendframework/zend-crypt": "Zend\\Crypt component"
+            },
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-0": {
+                    "Zend\\Filter\\": ""
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "provides a set of commonly needed data filters",
+            "homepage": "http://packages.zendframework.com/",
+            "keywords": [
+                "zf2",
+                "filter"
+            ],
+            "support": {
+                "email": "fw-general-subscribe@lists.zend.com",
+                "irc": "irc://irc.freenode.net/zftalk",
+                "issues": "https://github.com/zendframework/zf2/issues",
+                "source": "https://github.com/zendframework/zf2"
+            }
+        },
+        {
             "name": "zendframework/zend-i18n",
-            "version": "2.0.2",
+            "version": "2.0.3",
             "target-dir": "Zend/I18n",
             "dist": {
                 "type": "zip",
-                "url": "http://packages.zendframework.com/composer/Zend_I18n-2.0.2.zip",
+                "url": "http://packages.zendframework.com/composer/Zend_I18n-2.0.3.zip",
                 "reference": null,
                 "shasum": null
             },
             "require": {
                 "php": ">=5.3.3",
                 "ext-intl": "*",
+                "zendframework/zend-filter": "self.version",
                 "zendframework/zend-stdlib": "self.version"
             },
             "type": "library",
             "installation-source": "dist",
             "autoload": {
                 "psr-0": {
-                    "Zend\\I18n": ""
+                    "Zend\\I18n\\": ""
                 }
             },
             "license": [
@@ -88,15 +133,21 @@
             "keywords": [
                 "zf2",
                 "i18n"
-            ]
+            ],
+            "support": {
+                "email": "fw-general-subscribe@lists.zend.com",
+                "irc": "irc://irc.freenode.net/zftalk",
+                "issues": "https://github.com/zendframework/zf2/issues",
+                "source": "https://github.com/zendframework/zf2"
+            }
         },
         {
             "name": "zendframework/zend-servicemanager",
-            "version": "2.0.2",
+            "version": "2.0.3",
             "target-dir": "Zend/ServiceManager",
             "dist": {
                 "type": "zip",
-                "url": "http://packages.zendframework.com/composer/Zend_ServiceManager-2.0.2.zip",
+                "url": "http://packages.zendframework.com/composer/Zend_ServiceManager-2.0.3.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -110,7 +161,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-0": {
-                    "Zend\\ServiceManager": ""
+                    "Zend\\ServiceManager\\": ""
                 }
             },
             "license": [
@@ -121,15 +172,21 @@
             "keywords": [
                 "zf2",
                 "servicemanager"
-            ]
+            ],
+            "support": {
+                "email": "fw-general-subscribe@lists.zend.com",
+                "irc": "irc://irc.freenode.net/zftalk",
+                "issues": "https://github.com/zendframework/zf2/issues",
+                "source": "https://github.com/zendframework/zf2"
+            }
         },
         {
             "name": "zendframework/zend-stdlib",
-            "version": "2.0.2",
+            "version": "2.0.3",
             "target-dir": "Zend/Stdlib",
             "dist": {
                 "type": "zip",
-                "url": "http://packages.zendframework.com/composer/Zend_Stdlib-2.0.2.zip",
+                "url": "http://packages.zendframework.com/composer/Zend_Stdlib-2.0.3.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -143,7 +200,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-0": {
-                    "Zend\\Stdlib": ""
+                    "Zend\\Stdlib\\": ""
                 }
             },
             "license": [
@@ -154,21 +211,28 @@
             "keywords": [
                 "zf2",
                 "stdlib"
-            ]
+            ],
+            "support": {
+                "email": "fw-general-subscribe@lists.zend.com",
+                "irc": "irc://irc.freenode.net/zftalk",
+                "issues": "https://github.com/zendframework/zf2/issues",
+                "source": "https://github.com/zendframework/zf2"
+            }
         },
         {
             "name": "zendframework/zend-validator",
-            "version": "2.0.2",
+            "version": "2.0.3",
             "target-dir": "Zend/Validator",
             "dist": {
                 "type": "zip",
-                "url": "http://packages.zendframework.com/composer/Zend_Validator-2.0.2.zip",
+                "url": "http://packages.zendframework.com/composer/Zend_Validator-2.0.3.zip",
                 "reference": null,
                 "shasum": null
             },
             "require": {
                 "php": ">=5.3.3",
                 "zendframework/zend-i18n": "self.version",
+                "zendframework/zend-servicemanager": "self.version",
                 "zendframework/zend-stdlib": "self.version"
             },
             "require-dev": {
@@ -182,7 +246,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-0": {
-                    "Zend\\Validator": ""
+                    "Zend\\Validator\\": ""
                 }
             },
             "license": [
@@ -193,7 +257,13 @@
             "keywords": [
                 "zf2",
                 "validator"
-            ]
+            ],
+            "support": {
+                "email": "fw-general-subscribe@lists.zend.com",
+                "irc": "irc://irc.freenode.net/zftalk",
+                "issues": "https://github.com/zendframework/zf2/issues",
+                "source": "https://github.com/zendframework/zf2"
+            }
         }
     ],
     "packages-dev": null,
