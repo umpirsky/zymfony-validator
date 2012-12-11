@@ -93,16 +93,6 @@ class ZymfonyModel
 }
 ```
 
-### Yaml
-
-```yaml
-Acme\DemoBundle\Entity\Product:
-    properties:
-        price:
-            - Zymfony\Component\Validator\Constraint:
-                validator: float
-```
-
 [See more examples.](https://github.com/umpirsky/symfony-standard/blob/zymfony-validator/src/Acme/DemoBundle/Model/Contact.php)
 
 ## Validators Available
