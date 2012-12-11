@@ -94,6 +94,16 @@ class ZymfonyModel
 ```
 [See more examples.](https://github.com/umpirsky/symfony-standard/blob/zymfony-validator/src/Acme/DemoBundle/Model/Contact.php)
 
+### Yaml
+
+```yaml
+ZymfonyModel:
+    properties:
+        creditcard:
+            - Zymfony\Component\Validator\Constraint:
+                validator: creditcard
+```
+
 ## Validators Available
 
 %ValidatorsAvailable%
