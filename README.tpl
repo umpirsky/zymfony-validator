@@ -94,6 +94,16 @@ class ZymfonyModel
 ```
 [See more examples.](https://github.com/umpirsky/symfony-standard/blob/zymfony-validator/src/Acme/DemoBundle/Model/Contact.php)
 
+### Yaml
+
+```yaml
+Acme\DemoBundle\Entity\Product:
+    properties:
+        price:
+            - Zymfony\Component\Validator\Constraint:
+                validator: float
+```
+
 ## Validators Available
 
 %ValidatorsAvailable%
