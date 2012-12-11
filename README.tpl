@@ -97,11 +97,11 @@ class ZymfonyModel
 ### Yaml
 
 ```yaml
-Acme\DemoBundle\Entity\Product:
+ZymfonyModel:
     properties:
-        price:
+        creditcard:
             - Zymfony\Component\Validator\Constraint:
-                validator: float
+                validator: creditcard
 ```
 
 ## Validators Available
