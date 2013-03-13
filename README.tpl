@@ -5,7 +5,7 @@ Zend validator adapter for Symfony.
 
 Zend Framework comes with a nice set of validation classes. Symfony provides nice validator component as well, but lacks some validators Zend already have like credit card, post code, hostname, iban...
 
-Zymfony Validator is a bridge between this two validators, and provides Symfonic interfaece for Zend validators.
+Zymfony Validator is a bridge between this two validators, and provides Symfonic interface for Zend validators.
 
 ## Installation
 
