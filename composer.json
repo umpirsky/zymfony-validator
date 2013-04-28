@@ -11,7 +11,7 @@
     ],
     "require": {
         "php":                               ">=5.3.3",
-        "symfony/validator":                 "v2.2.1",
+        "symfony/validator":                 "2.2.*",
         "zendframework/zend-validator":      "2.1.*"
     },
     "autoload": {

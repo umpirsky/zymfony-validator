@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "ee073e8c71cba8405e7b02314e58fc06",
+    "hash": "fefb0f3757cec700e39271a744643c99",
     "packages": [
         {
             "name": "symfony/translation",
