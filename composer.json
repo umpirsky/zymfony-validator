@@ -9,16 +9,10 @@
             "email": "umpirsky@gmail.com"
         }
     ],
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "http://packages.zendframework.com/"
-        }
-    ],
     "require": {
         "php":                               ">=5.3.3",
-        "symfony/validator":                 "2.1.*",
-        "zendframework/zend-validator":      "2.0.*"
+        "symfony/validator":                 "v2.2.1",
+        "zendframework/zend-validator":      "2.1.*"
     },
     "autoload": {
         "psr-0": { "Zymfony": "src" }
